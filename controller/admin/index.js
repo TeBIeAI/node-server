@@ -48,6 +48,7 @@ class Admin {
 
 	login = async (req, res) => {
 		const { username, password } = req.body
+		console.log(username);
 		try {
 			if (!username) {
 				throw Error('用户名异常')
@@ -79,7 +80,7 @@ class Admin {
 			res.send({
 				code: 200,
 				msg: '登录成功',
-				token,
+				data: { token },
 			})
 		} catch (error) {
 			return res.send({
@@ -139,8 +140,6 @@ class Admin {
 				msg: error.message,
 			})
 		}
-
-
 	}
 }
 

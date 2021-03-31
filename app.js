@@ -36,6 +36,7 @@ const white = ['/login', '/register']
 
 app.use(async function (req, res, next) {
 	const { path } = req
+
 	if (white.includes(path)) {
 		next()
 	} else {
