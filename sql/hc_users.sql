@@ -1,0 +1,11 @@
+INSERT INTO `hc_users` (`uid`, `username`, `password`, `role`, `create_time`) VALUES (1, 'hc', '123456', '1', NULL);
+INSERT INTO `hc_users` (`uid`, `username`, `password`, `role`, `create_time`) VALUES (2, 'hcc', '123456', '1', NULL);
+INSERT INTO `hc_users` (`uid`, `username`, `password`, `role`, `create_time`) VALUES (3, 'hhh', '123456', '1', NULL);
+INSERT INTO `hc_users` (`uid`, `username`, `password`, `role`, `create_time`) VALUES (4, 'hc1dsadsad', '123213', '1', NULL);
+INSERT INTO `hc_users` (`uid`, `username`, `password`, `role`, `create_time`) VALUES (5, 'hc1dsadsad2', '123213', '1', NULL);
+INSERT INTO `hc_users` (`uid`, `username`, `password`, `role`, `create_time`) VALUES (6, 'hc1dsadsad23', '123213', '1', NULL);
+INSERT INTO `hc_users` (`uid`, `username`, `password`, `role`, `create_time`) VALUES (7, 'hancha321', '8ad3fac6c6b3528499d347d924443abb', '1', NULL);
+INSERT INTO `hc_users` (`uid`, `username`, `password`, `role`, `create_time`) VALUES (8, 'hancha3212', 'jy4PXywccGaHgFj6dItGCA==', '1', NULL);
+INSERT INTO `hc_users` (`uid`, `username`, `password`, `role`, `create_time`) VALUES (9, 'hancha32121', '8ad3fac6c6b3528499d347d924443abb', '1', '2021-2-19 16:39:17');
+INSERT INTO `hc_users` (`uid`, `username`, `password`, `role`, `create_time`) VALUES (10, 'hanchaf1', '8ad3fac6c6b3528499d347d924443abb', '1', '2021-2-18 16:39:00');
+INSERT INTO `hc_users` (`uid`, `username`, `password`, `role`, `create_time`) VALUES (11, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '1', '2021-2-19 14:16:00');
