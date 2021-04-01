@@ -32,7 +32,7 @@ app.all('*', function (req, res, next) {
 	else next()
 })
 
-const white = ['/login', '/register']
+const white = ['/api/login', '/api/register']
 
 app.use(async function (req, res, next) {
 	const { path } = req
@@ -57,8 +57,8 @@ app.use(async function (req, res, next) {
 	}
 })
 
-app.use('/', indexRouter)
-app.use('/users', usersRouter)
+// app.use('/', indexRouter)
+app.use('/api', usersRouter)
 
 // catch 404 and forward to error handler
 // app.use(function (req, res, next) {

@@ -1,30 +1,10 @@
-const mysql = require('mysql')
+const { Sequelize } = require('sequelize');
+const { dbconfig } = require('../config/config')
 
-const pool = mysql.createPool({
-	connectionLimit: 10,
-	host: 'localhost',
-	user: 'root',
-	password: 'root',
-	database: 'hc_users',
-	multipleStatements: true, //是否允许执行多条sql语句
-})
+const sequelize = new Sequelize(dbconfig.database, dbconfig.username, dbconfig.password, {
+	host: dbconfig.host,
+	port: '3306',
+	dialect: 'mysql', /* 选择 'mysql' | 'mariadb' | 'postgres' | 'mssql' 其一 */
+});
 
-module.exports = {
-	sqlQuery(sql, sqlArr) {
-		return new Promise((resolve, reject) => {
-			pool.getConnection((err, connection) => {
-				if (err) reject(err)
-				else {
-					connection.query(sql, (err, result) => {
-						if (err) {
-							reject(err)
-						} else {
-							resolve(result)
-						}
-						connection.release()
-					})
-				}
-			})
-		})
-	},
-}
+module.exports = sequelize;
