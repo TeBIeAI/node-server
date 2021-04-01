@@ -7,5 +7,6 @@ router.post('/login', UserModel.login);
 router.post('/userInfo', UserModel.userInfo);
 router.get('/getUsers', UserModel.getUsers);
 router.get('/admin_info', UserModel.admin_info);
+router.post('/edit_user', UserModel.edit_user);
 
 module.exports = router;

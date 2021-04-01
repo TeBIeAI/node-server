@@ -2,6 +2,7 @@ const UserModel = require('../../models/user')
 const { encryption } = require('../../utils')
 const jwt = require('../../config/jwt')
 const User_Detail_Model = require('../../models/user_details')
+const { Vote, Choice } = require('../../models/test')
 
 
 class User {
@@ -29,6 +30,31 @@ class User {
         msg: error.message,
       })
     }
+    console.log(111111);
+    const one = await Vote.findByPk(1)
+    const chosess = await one.getChoices()
+    await chosess[0].update({ count: 300 })
+
+    // Vote.findByPk(1)
+    //   .then(function (vote) {
+
+    //     return vote.getChoices()
+    //   })
+    //   .then(function (choices) {
+    //     console.log(2222222222222, choices);
+
+    //     return choices[0].update({ count: 120 })
+    //   })
+    //   .then(function (choice) {
+    //     callback(null, choice);
+    //   })
+    //   .catch(function (err) {
+    //     callback(err);
+    //   });
+    // res.send({
+    //   msg: 'ok'
+    // })
+    return
 
     try {
       let findResult = await UserModel.findOne({
@@ -37,14 +63,16 @@ class User {
         }
       })
       if (!findResult) {
-        this.register(username, pwd)
+        await this.register(username, pwd)
 
         findResult = await UserModel.findOne({
           where: {
-            username
+            username: username
           }
         })
+        console.log(findResult);
       }
+      console.log(findResult);
       const { password } = findResult
       const formPassword = encryption(pwd)
       if (formPassword !== password) throw new Error('密码错误')
@@ -146,6 +174,27 @@ class User {
       })
     }
 
+  }
+
+  edit_user = async (req, res) => {
+    const { username, uid, role } = req.body
+    try {
+      const result = await UserModel.update({
+        username: username
+      }, {
+        where: { id: uid },
+      })
+      console.log(result, '----------');
+      res.send({
+        code: 200,
+        msg: '修改成功'
+      })
+    } catch (error) {
+      res.send({
+        code: -1,
+        msg: '修改用户失败'
+      })
+    }
   }
 
 }
